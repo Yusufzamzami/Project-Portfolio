@@ -1,13 +1,37 @@
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
-import { Award } from "lucide-react";
 
 const certs = [
-  { name: "AWS Solutions Architect", issuer: "Amazon Web Services", year: "2023" },
-  { name: "Certified Kubernetes Administrator", issuer: "CNCF", year: "2023" },
-  { name: "RHCSA", issuer: "Red Hat", year: "2022" },
-  { name: "Terraform Associate", issuer: "HashiCorp", year: "2022" },
-  { name: "Google Cloud Engineer", issuer: "Google Cloud", year: "2021" },
+  {
+    name: "AWS Solutions Architect",
+    issuer: "Amazon Web Services",
+    year: "2023",
+    logo: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+  },
+  {
+    name: "Certified Kubernetes Administrator",
+    issuer: "CNCF",
+    year: "2023",
+    logo: "https://images.credly.com/size/340x340/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncfsite__281_29.png",
+  },
+  {
+    name: "RHCSA",
+    issuer: "Red Hat",
+    year: "2022",
+    logo: "https://images.credly.com/size/340x340/images/572de0ba-2c59-4816-a59d-b7571f6523e1/image.png",
+  },
+  {
+    name: "Terraform Associate",
+    issuer: "HashiCorp",
+    year: "2022",
+    logo: "https://images.credly.com/size/340x340/images/99289602-861e-4929-8277-773e63a2fa6f/image.png",
+  },
+  {
+    name: "Google Cloud Engineer",
+    issuer: "Google Cloud",
+    year: "2021",
+    logo: "https://images.credly.com/size/340x340/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
+  },
 ];
 
 const Certifications = () => (
@@ -26,10 +50,15 @@ const Certifications = () => (
             <motion.div
               whileHover={{ scale: 1.03, y: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="glass-card p-5 flex items-start gap-4 cursor-default"
+              className="glass-card p-5 flex items-center gap-4 cursor-default"
             >
-              <div className="p-2 rounded-lg bg-primary/10 shrink-0">
-                <Award size={20} className="text-primary" />
+              <div className="w-12 h-12 rounded-lg bg-secondary/50 shrink-0 overflow-hidden flex items-center justify-center p-1.5">
+                <img
+                  src={cert.logo}
+                  alt={cert.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
               <div>
                 <h3 className="text-foreground font-medium text-sm">{cert.name}</h3>

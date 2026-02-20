@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -32,8 +33,11 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="text-lg font-bold tracking-tight text-foreground">
-          <span className="text-gradient">{"<"}</span>DevOps<span className="text-gradient">{"/>"}</span>
+        <a href="#home" className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground group">
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary text-primary-foreground font-mono font-extrabold text-base tracking-tighter group-hover:shadow-lg transition-shadow duration-300">
+            YZ
+          </span>
+          <span className="hidden sm:inline text-foreground">Portfolio</span>
         </a>
 
         {/* Desktop */}
@@ -49,14 +53,17 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground p-2"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-foreground p-2"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

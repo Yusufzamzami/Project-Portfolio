@@ -33,11 +33,22 @@ const Navbar = () => {
       }`}
     >
       <div className="container-custom flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground group">
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary text-primary-foreground font-mono font-extrabold text-base tracking-tighter group-hover:shadow-lg transition-shadow duration-300">
-            YZ
-          </span>
-          <span className="hidden sm:inline text-foreground">Portfolio</span>
+        <a href="#home" className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-foreground group">
+          <motion.span
+            whileHover={{ scale: 1.1, rotate: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 12 }}
+            className="relative inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-emerald-500 text-primary-foreground font-mono font-extrabold text-base tracking-tighter shadow-md group-hover:shadow-[0_0_20px_-3px_hsl(160_45%_40%/_0.5)] transition-shadow duration-500 overflow-hidden"
+          >
+            <span className="relative z-10">YZ</span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent"
+              initial={{ x: "-100%", opacity: 0 }}
+              whileHover={{ x: "100%", opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+            />
+          </motion.span>
+          <span className="hidden sm:inline text-foreground font-semibold">Portfolio</span>
         </a>
 
         {/* Desktop */}

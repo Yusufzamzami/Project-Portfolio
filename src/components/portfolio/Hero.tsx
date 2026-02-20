@@ -1,7 +1,47 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import profileImg from "@/assets/profile-placeholder.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const titles = ["DevOps Engineer", "Linux SysAdmin", "Cloud Architect", "Infrastructure Specialist"];
+
+const TypingEffect = () => {
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = titles[titleIndex];
+    const timeout = deleting ? 40 : 80;
+
+    if (!deleting && charIndex === current.length) {
+      setTimeout(() => setDeleting(true), 2000);
+      return;
+    }
+    if (deleting && charIndex === 0) {
+      setDeleting(false);
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCharIndex((prev) => prev + (deleting ? -1 : 1));
+    }, timeout);
+    return () => clearTimeout(timer);
+  }, [charIndex, deleting, titleIndex]);
+
+  return (
+    <span className="text-gradient">
+      {titles[titleIndex].substring(0, charIndex)}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+        className="inline-block w-[3px] h-[1em] bg-primary ml-0.5 align-middle"
+      />
+    </span>
+  );
+};
 
 const Hero = () => (
   <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -31,7 +71,9 @@ const Hero = () => (
           </motion.p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 leading-[1.1]">
             Your Name
-            <span className="block text-gradient mt-2">DevOps Engineer</span>
+            <span className="block mt-2 min-h-[1.2em]">
+              <TypingEffect />
+            </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-lg mb-8 leading-relaxed">
             Building resilient infrastructure, automating everything, and bridging the gap between development and operations with precision.

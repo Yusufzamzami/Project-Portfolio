@@ -104,7 +104,7 @@ const Hero = () => (
           className="order-1 lg:order-2 flex justify-center"
         >
           <div className="relative">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 blur-md animate-pulse-glow" />
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 to-primary/10 blur-md animate-pulse-glow" />
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -113,7 +113,7 @@ const Hero = () => (
               <img
                 src={profileImg}
                 alt="Professional profile photo"
-                className="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full object-cover border-2 border-primary/30"
+                className="w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-[22rem] rounded-2xl object-cover object-top border-2 border-primary/30 shadow-xl"
                 loading="lazy"
               />
             </motion.div>

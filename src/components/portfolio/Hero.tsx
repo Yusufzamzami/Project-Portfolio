@@ -70,7 +70,7 @@ const Hero = () => (
             👋 Hello, I'm
           </motion.p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 leading-[1.1]">
-            Your Name
+            Yusuf Zamzami
             <span className="block mt-2 min-h-[1.2em]">
               <TypingEffect />
             </span>

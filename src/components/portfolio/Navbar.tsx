@@ -48,7 +48,7 @@ const Navbar = () => {
               transition={{ duration: 0.6, ease: "easeInOut" }}
             />
           </motion.span>
-          <span className="hidden sm:inline text-foreground font-semibold">Portfolio</span>
+          <span className="hidden sm:inline text-foreground font-semibold">Yusuf Zamzami</span>
         </a>
 
         {/* Desktop */}

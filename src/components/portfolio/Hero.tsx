@@ -12,7 +12,7 @@ const TypingEffect = () => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = titles[titleIndex];
+    const current = titles[titleIndex % titles.length];
     const timeout = deleting ? 40 : 80;
 
     if (!deleting && charIndex === current.length) {
@@ -33,7 +33,7 @@ const TypingEffect = () => {
 
   return (
     <span className="text-gradient">
-      {titles[titleIndex].substring(0, charIndex)}
+      {titles[titleIndex % titles.length].substring(0, charIndex)}
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}

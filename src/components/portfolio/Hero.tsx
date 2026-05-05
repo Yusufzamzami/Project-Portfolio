@@ -4,7 +4,7 @@ import { ArrowDown, Download, Mail } from "lucide-react";
 import profileImg from "@/assets/profile-placeholder.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const titles = ["DevOps Engineer", "Linux SysAdmin", "Cloud Architect", "Infrastructure Specialist"];
+const titles = ["Fullstack Developer", "Data Analyst"];
 
 const TypingEffect = () => {
   const [titleIndex, setTitleIndex] = useState(0);

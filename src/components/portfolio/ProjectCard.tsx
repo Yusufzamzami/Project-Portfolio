@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 export interface Project {
@@ -72,11 +72,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       <motion.div
         className="absolute inset-0 pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"
         style={{
-          background: useTransform(
-            [glareX, glareY] as any,
-            ([x, y]: any) =>
-              `radial-gradient(400px circle at ${x}% ${y}%, hsl(0 0% 100% / 0.35), transparent 50%)`
-          ),
+          background: useMotionTemplate`radial-gradient(400px circle at ${glareX}% ${glareY}%, hsl(0 0% 100% / 0.35), transparent 50%)`,
         }}
       />
 

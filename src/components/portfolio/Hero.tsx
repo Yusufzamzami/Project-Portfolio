@@ -103,17 +103,22 @@ const Hero = () => (
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="order-1 lg:order-2 flex justify-center"
         >
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/40 to-primary/10 blur-md animate-pulse-glow" />
+          <div className="relative group">
             <motion.div
-              animate={{ y: [0, -8, 0] }}
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-primary/40 via-emerald-400/30 to-primary/10 blur-md"
+            />
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.04, rotate: -1 }}
               className="relative"
             >
               <img
                 src={profileImg}
                 alt="Professional profile photo"
-                className="w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-[22rem] rounded-2xl object-cover object-top border-2 border-primary/30 shadow-xl"
+                className="w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-[22rem] rounded-2xl object-cover object-top border-2 border-primary/30 shadow-xl transition-all duration-500 group-hover:shadow-[0_20px_60px_-10px_hsl(160_45%_45%_/_0.4)]"
                 loading="lazy"
               />
             </motion.div>

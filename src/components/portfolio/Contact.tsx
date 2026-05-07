@@ -100,16 +100,19 @@ const Contact = () => {
                 Feel free to reach out through any channel.
               </p>
               {socials.map((social) => (
-                <a
+                <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 glass-card hover-lift group"
+                  whileHover={{ scale: 1.03, x: 4 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  className="flex items-center gap-4 p-4 glass-card hover-lift group cursor-pointer"
                 >
-                  <social.icon size={20} className="text-primary group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-foreground text-sm font-medium">{social.label}</span>
-                </a>
+                  <social.icon size={20} className="text-primary group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300" />
+                  <span className="text-foreground text-sm font-medium break-all">{social.label}</span>
+                </motion.a>
               ))}
             </div>
           </SectionReveal>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
+import Tilt3D from "./Tilt3D";
 
 const certs = [
   {
@@ -47,24 +48,30 @@ const Certifications = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {certs.map((cert, i) => (
           <SectionReveal key={cert.name} delay={i * 0.08}>
-            <motion.div
-              whileHover={{ scale: 1.03, y: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="glass-card p-5 flex items-center gap-4 cursor-default"
-            >
-              <div className="w-12 h-12 rounded-lg bg-secondary/50 shrink-0 overflow-hidden flex items-center justify-center p-1.5">
-                <img
-                  src={cert.logo}
-                  alt={cert.name}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <h3 className="text-foreground font-medium text-sm">{cert.name}</h3>
-                <p className="text-muted-foreground text-xs mt-1">{cert.issuer} · {cert.year}</p>
-              </div>
-            </motion.div>
+            <Tilt3D intensity={12} className="rounded-xl">
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="glass-card p-5 flex items-center gap-4 cursor-default"
+              >
+                <div
+                  style={{ transform: "translateZ(40px)" }}
+                  className="w-12 h-12 rounded-lg bg-secondary/50 shrink-0 overflow-hidden flex items-center justify-center p-1.5"
+                >
+                  <img
+                    src={cert.logo}
+                    alt={cert.name}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <div style={{ transform: "translateZ(20px)" }}>
+                  <h3 className="text-foreground font-medium text-sm">{cert.name}</h3>
+                  <p className="text-muted-foreground text-xs mt-1">{cert.issuer} · {cert.year}</p>
+                </div>
+              </motion.div>
+            </Tilt3D>
           </SectionReveal>
         ))}
       </div>

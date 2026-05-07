@@ -76,7 +76,7 @@ const Hero = () => (
             </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-lg mb-8 leading-relaxed">
-            Building resilient infrastructure, automating everything, and bridging the gap between development and operations with precision.
+            Combining data analytics, software engineering, and modern technologies to create impactful digital solutions and actionable business intelligence.
           </p>
           <div className="flex flex-wrap gap-4">
             <a

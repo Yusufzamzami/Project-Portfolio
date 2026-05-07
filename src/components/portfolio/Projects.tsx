@@ -2,16 +2,16 @@ import { useState } from "react";
 import SectionReveal from "./SectionReveal";
 import ProjectCard, { type Project } from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
+import dealerPerformance from "@/assets/project-dealer-performance.png";
 
 const projects: Project[] = [
   {
-    title: "Kubernetes Cluster Automation",
-    description: "Automated multi-node K8s cluster provisioning with Terraform and Ansible across AWS regions.",
-    longDescription: "Built a fully automated Kubernetes cluster provisioning system using Terraform for infrastructure and Ansible for configuration management. Supports multi-region deployment on AWS with automatic scaling, monitoring integration, and disaster recovery capabilities.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
-    tags: ["Kubernetes", "Terraform", "Ansible", "AWS"],
-    github: "#",
-    demo: "#",
+    title: "Dealer Performance Dashboard",
+    description: "Modern Tableau dashboard for monitoring regional sales performance, dealer revenue, and customer insights using interactive business intelligence visualization.",
+    longDescription: "Modern Tableau dashboard for monitoring regional sales performance, dealer revenue, and customer insights using interactive business intelligence visualization. Features include sales by region, dealer contribution treemap, revenue per dealer, transmission distribution, and top 10 dealers analysis.",
+    image: dealerPerformance,
+    tags: ["Tableau", "Analytics", "Dashboard Design"],
+    demo: "https://public.tableau.com/app/profile/yusuf.ilham.zamzami/viz/Book1_17750597367040/DBPerformance",
   },
   {
     title: "CI/CD Pipeline Framework",

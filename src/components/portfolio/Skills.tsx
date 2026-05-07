@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 import { 
   Terminal, Container, Cloud, GitBranch, Activity, 
-  Network, Code, BarChart3, Layers, Settings, Cpu
+  Network, Code, BarChart3, Layers, Settings, Cpu, FileCode, Atom
 } from "lucide-react";
 
 const skills = [
+  { name: "Tableau", icon: BarChart3 },
+  { name: "React.js", icon: Atom },
+  { name: "TypeScript", icon: FileCode },
   { name: "Linux", icon: Terminal },
   { name: "Docker", icon: Container },
   { name: "Kubernetes", icon: Layers },

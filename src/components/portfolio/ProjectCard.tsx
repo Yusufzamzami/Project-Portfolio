@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 export interface Project {
@@ -24,8 +24,19 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotateX = useSpring(useTransform(mouseY, [-150, 150], [5, -5]), { stiffness: 300, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-150, 150], [-5, 5]), { stiffness: 300, damping: 30 });
+  // Stronger 3D tilt
+  const rotateX = useSpring(useTransform(mouseY, [-150, 150], [14, -14]), { stiffness: 250, damping: 22 });
+  const rotateY = useSpring(useTransform(mouseX, [-150, 150], [-14, 14]), { stiffness: 250, damping: 22 });
+
+  // Parallax depth for inner layers
+  const imgX = useSpring(useTransform(mouseX, [-150, 150], [-12, 12]), { stiffness: 200, damping: 20 });
+  const imgY = useSpring(useTransform(mouseY, [-150, 150], [-12, 12]), { stiffness: 200, damping: 20 });
+  const contentX = useSpring(useTransform(mouseX, [-150, 150], [-6, 6]), { stiffness: 200, damping: 20 });
+  const contentY = useSpring(useTransform(mouseY, [-150, 150], [-6, 6]), { stiffness: 200, damping: 20 });
+
+  // Glare position
+  const glareX = useTransform(mouseX, [-150, 150], [0, 100]);
+  const glareY = useTransform(mouseY, [-150, 150], [0, 100]);
 
   const handleMouse = (e: React.MouseEvent) => {
     if (!ref.current) return;
@@ -43,38 +54,47 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
       ref={ref}
-      style={{ rotateX, rotateY, transformPerspective: 800 }}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 1200,
+        transformStyle: "preserve-3d",
+      }}
       onMouseMove={handleMouse}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleLeave}
       onClick={onSelect}
-      className="glass-card overflow-hidden cursor-pointer hover-lift group relative"
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="glass-card overflow-hidden cursor-pointer group relative shadow-[0_10px_40px_-12px_hsl(0_0%_0%_/_0.25)] hover:shadow-[0_30px_60px_-15px_hsl(160_45%_30%_/_0.35)] transition-shadow duration-500"
     >
-      {/* Mouse light effect */}
-      {hovered && (
-        <motion.div
-          className="absolute inset-0 pointer-events-none z-10"
-          style={{
-            background: `radial-gradient(300px circle at ${mouseX.get() + 150}px ${mouseY.get() + 100}px, hsl(160 45% 45% / 0.06), transparent 60%)`,
-          }}
-        />
-      )}
+      {/* Glare / shine */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"
+        style={{
+          background: useMotionTemplate`radial-gradient(400px circle at ${glareX}% ${glareY}%, hsl(0 0% 100% / 0.35), transparent 50%)`,
+        }}
+      />
 
-      {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      {/* Image with parallax */}
+      <div className="relative h-48 overflow-hidden" style={{ transformStyle: "preserve-3d" }}>
         <motion.img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover"
-          animate={{ scale: hovered ? 1.06 : 1, filter: hovered ? "brightness(1.1)" : "brightness(1)" }}
+          style={{ x: imgX, y: imgY, scale: 1.08, translateZ: 40 }}
+          animate={{ filter: hovered ? "brightness(1.1)" : "brightness(1)" }}
           transition={{ duration: 0.4 }}
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="p-6 relative z-10">
+      {/* Content with subtle depth */}
+      <motion.div
+        className="p-6 relative z-10"
+        style={{ x: contentX, y: contentY, translateZ: 30 }}
+      >
         <h3 className="text-foreground font-semibold text-lg mb-2">{project.title}</h3>
         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
           {project.description}
@@ -112,7 +132,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
             </a>
           )}
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

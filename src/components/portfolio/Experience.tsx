@@ -2,22 +2,22 @@ import SectionReveal from "./SectionReveal";
 
 const experiences = [
   {
-    role: "Senior DevOps Engineer",
-    company: "Tech Company",
-    period: "2022 — Present",
-    description: "Leading infrastructure automation and cloud migration initiatives. Managing Kubernetes clusters and CI/CD pipelines for 20+ microservices.",
+    role: "Technical Support Engineer & Plt. Site Manager",
+    company: "PT Delameta Bilano",
+    period: "2023 — 2024",
+    points: [
+      "Supported GTO (Automated Toll Gate) systems for JASAMARGA, Hutama Karya, Waskita, PP, and Hutama Marga Waskita, ensuring reliable operations and seamless transaction processing.",
+      "Managed and supervised the implementation of automated toll gate projects on-site.",
+    ],
   },
   {
-    role: "Linux System Administrator",
-    company: "Enterprise Corp",
-    period: "2020 — 2022",
-    description: "Administered 200+ Linux servers, implemented monitoring solutions, and automated routine operations reducing manual work by 60%.",
-  },
-  {
-    role: "IT Infrastructure Specialist",
-    company: "Startup Inc",
+    role: "QA Engineer",
+    company: "PT Astra Daihatsu Motor",
     period: "2018 — 2020",
-    description: "Built cloud infrastructure from scratch on AWS. Established security protocols, backup strategies, and disaster recovery procedures.",
+    points: [
+      "Monitored SOP compliance and supported Continuous Improvement & Zero Defect initiatives.",
+      "Prepared daily quality reports and analyzed defect data to improve production performance.",
+    ],
   },
 ];
 
@@ -46,7 +46,9 @@ const Experience = () => (
                   <span className="text-primary font-mono text-xs tracking-wider">{exp.period}</span>
                   <h3 className="text-foreground font-semibold text-lg mt-1">{exp.role}</h3>
                   <p className="text-muted-foreground text-sm mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
+                  <ul className="text-muted-foreground text-sm leading-relaxed list-disc pl-5 space-y-1">
+                    {exp.points.map((p) => (<li key={p}>{p}</li>))}
+                  </ul>
                 </div>
               </div>
             </SectionReveal>

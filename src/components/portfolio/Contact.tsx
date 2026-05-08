@@ -11,10 +11,10 @@ const contactSchema = z.object({
 });
 
 const socials = [
-  { icon: Mail, label: "yusufzamzamijr@gmail.com", href: "mailto:yusufzamzamijr@gmail.com" },
-  { icon: Linkedin, label: "linkedin.com/in/yusufiihamzamzami", href: "https://www.linkedin.com/in/yusufiihamzamzami" },
-  { icon: Github, label: "github.com/Yusufzamzami", href: "https://github.com/Yusufzamzami/Yusufzamzami" },
-  { icon: MessageCircle, label: "WhatsApp: 0823-2511-0647", href: "https://wa.me/6282325110647" },
+  { icon: Mail, label: "Email", href: "mailto:yusufzamzamijr@gmail.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/yusufiihamzamzami" },
+  { icon: Github, label: "GitHub", href: "https://github.com/Yusufzamzami/Yusufzamzami" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/6282325110647" },
 ];
 
 const Contact = () => {

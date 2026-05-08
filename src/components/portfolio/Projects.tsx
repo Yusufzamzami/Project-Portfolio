@@ -4,6 +4,7 @@ import ProjectCard, { type Project } from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import dealerPerformance from "@/assets/project-dealer-performance.png";
 import mytegalInfrahub from "@/assets/project-mytegal-infrahub.png";
+import gardenResidence from "@/assets/project-garden-residence.png";
 
 const projects: Project[] = [
   {
@@ -15,37 +16,20 @@ const projects: Project[] = [
     demo: "https://mytegal-infrahub.vercel.app",
   },
   {
+    title: "The Garden Residence - Hotel Booking Platform",
+    description: "Platform booking hotel mewah dengan pengalaman pemesanan kamar yang elegan, sistem autentikasi tamu, dan tampilan visual premium bertema garden.",
+    longDescription: "The Garden Residence adalah platform booking hotel modern yang menghadirkan pengalaman pemesanan kamar mewah secara online. Pengguna dapat menjelajahi pilihan kamar premium, melihat detail fasilitas, dan melakukan reservasi dengan mudah. Fitur utama: 50+ luxury rooms, layanan concierge 24/7, sistem booking interaktif, autentikasi pengguna, dan UI premium dengan tema garden yang menenangkan.",
+    image: gardenResidence,
+    tags: ["React", "TypeScript", "Tailwind", "Booking System", "Auth"],
+    demo: "https://garden-stay-booking.vercel.app",
+  },
+  {
     title: "Dealer Performance Dashboard",
     description: "Modern Tableau dashboard for monitoring regional sales performance, dealer revenue, and customer insights using interactive business intelligence visualization.",
     longDescription: "Modern Tableau dashboard for monitoring regional sales performance, dealer revenue, and customer insights using interactive business intelligence visualization. Features include sales by region, dealer contribution treemap, revenue per dealer, transmission distribution, and top 10 dealers analysis.",
     image: dealerPerformance,
     tags: ["Tableau", "Analytics", "Dashboard Design"],
     demo: "https://public.tableau.com/app/profile/yusuf.ilham.zamzami/viz/Book1_17750597367040/DBPerformance",
-  },
-  {
-    title: "CI/CD Pipeline Framework",
-    description: "Enterprise-grade CI/CD pipeline with GitLab CI, Docker, and automated testing stages.",
-    longDescription: "Designed and implemented a comprehensive CI/CD pipeline framework for microservices architecture. Features include automated testing, security scanning, container building, and blue-green deployments with zero downtime.",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop",
-    tags: ["GitLab CI", "Docker", "Python", "Bash"],
-    github: "#",
-  },
-  {
-    title: "Infrastructure Monitoring Stack",
-    description: "Full observability stack with Prometheus, Grafana, and custom alerting rules.",
-    longDescription: "Deployed a comprehensive monitoring and observability platform using Prometheus for metrics collection, Grafana for visualization, and Alertmanager for intelligent alerting. Custom dashboards provide real-time insights into system health and performance.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    tags: ["Prometheus", "Grafana", "Docker", "Linux"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Cloud Migration Platform",
-    description: "Automated cloud migration tool for seamless on-prem to AWS infrastructure transitions.",
-    longDescription: "Developed an automated migration platform that streamlines the process of moving on-premise workloads to AWS. Includes assessment tools, dependency mapping, and automated cutover procedures with rollback capabilities.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
-    tags: ["AWS", "Terraform", "Python", "CloudFormation"],
-    github: "#",
   },
 ];
 

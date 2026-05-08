@@ -46,7 +46,9 @@ const Experience = () => (
                   <span className="text-primary font-mono text-xs tracking-wider">{exp.period}</span>
                   <h3 className="text-foreground font-semibold text-lg mt-1">{exp.role}</h3>
                   <p className="text-muted-foreground text-sm mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
+                  <ul className="text-muted-foreground text-sm leading-relaxed list-disc pl-5 space-y-1">
+                    {exp.points.map((p) => (<li key={p}>{p}</li>))}
+                  </ul>
                 </div>
               </div>
             </SectionReveal>

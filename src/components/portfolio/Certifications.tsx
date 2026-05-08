@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import SectionReveal from "./SectionReveal";
 import Tilt3D from "./Tilt3D";
 import awsDevOpsCert from "@/assets/cert-aws-devops.png";
+import frontendCert from "@/assets/cert-frontend-2.png";
+import wireframingCert from "@/assets/cert-wireframing.png";
+import databaseCert from "@/assets/cert-database.png";
 
 const certs = [
   {
@@ -9,6 +12,24 @@ const certs = [
     issuer: "AWS Training & Certification",
     year: "Feb 2026",
     image: awsDevOpsCert,
+  },
+  {
+    name: "Fundamental Front-End Web Development II",
+    issuer: "Coding Studio",
+    year: "Nov 2024",
+    image: frontendCert,
+  },
+  {
+    name: "Mahir Membuat Database Aplikasi Profesional",
+    issuer: "Coding Studio",
+    year: "Nov 2024",
+    image: databaseCert,
+  },
+  {
+    name: "Wireframing in UI/UX Design",
+    issuer: "MySkill Short Class",
+    year: "Nov 2024",
+    image: wireframingCert,
   },
 ];
 

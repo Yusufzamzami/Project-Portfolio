@@ -3,8 +3,17 @@ import SectionReveal from "./SectionReveal";
 import ProjectCard, { type Project } from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import dealerPerformance from "@/assets/project-dealer-performance.png";
+import mytegalInfrahub from "@/assets/project-mytegal-infrahub.png";
 
 const projects: Project[] = [
+  {
+    title: "MyTegal InfraHub - Platform Laporan Publik",
+    description: "Platform pelaporan infrastruktur publik resmi Pemerintah Kota Tegal untuk warga melaporkan kerusakan jalan, lampu mati, dan masalah infrastruktur lainnya.",
+    longDescription: "MyTegal InfraHub adalah platform pelaporan publik yang saya bangun untuk Pemerintah Kota Tegal. Memungkinkan warga melaporkan masalah infrastruktur (jalan rusak, lampu mati, fasilitas umum) dengan mudah melalui peta interaktif. Platform ini sudah menampung 1214+ laporan masuk dengan tingkat penyelesaian 86%, melayani 3 kecamatan dan 4871+ warga aktif. Fitur utama: pembuatan laporan dengan geolocation, peta interaktif, dashboard admin, sistem autentikasi warga, dan dark mode.",
+    image: mytegalInfrahub,
+    tags: ["React", "TypeScript", "Tailwind", "Maps", "Public Platform"],
+    demo: "https://mytegal-infrahub.vercel.app",
+  },
   {
     title: "Dealer Performance Dashboard",
     description: "Modern Tableau dashboard for monitoring regional sales performance, dealer revenue, and customer insights using interactive business intelligence visualization.",
